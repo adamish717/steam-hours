@@ -1,0 +1,19 @@
+language: ruby
+rvm:
+- 2.1.2
+before_install:
+- psql -c 'create database steam_hours_test;' -U postgres
+addons:
+  postgresql: '9.3'
+notifications:
+  webhooks: https://hubot-sinetheta.herokuapp.com/hubot/travis?room=steam
+deploy:
+  provider: heroku
+  api_key:
+    secure: poyBk0A8q4/d3uyrauRNHYZ0+2FF7PA1DWGGRAJ7xsS1cyl+lQ528ctaNqWcFTvq5bDdU+cynqUEr7rhKEWK/AACXjp3F/8FjV6R00jledqOdjp7VwiYABxy1s1BDuGrG8WLIHEKdU4+SfEbyojl2jYb/rY4akDQTez7wo9dGU8=
+  app: steam-hours
+  on:
+    repo: Sinetheta/steam-hours
+  run:
+    - "rake db:migrate"
+    - restart
