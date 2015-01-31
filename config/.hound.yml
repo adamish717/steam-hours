@@ -1,0 +1,7 @@
+ruby:
+  enabled: true
+coffee_script:
+  enabled: true
+  config_file: config/.coffeelint.json
+scss:
+  enabled: true
