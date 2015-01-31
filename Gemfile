@@ -48,6 +48,8 @@ gem 'health_check'
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 group :development, :test do

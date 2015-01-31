@@ -7,6 +7,9 @@ addons:
   postgresql: '9.3'
 notifications:
   webhooks: https://hubot-sinetheta.herokuapp.com/hubot/travis?room=steam
+  code_climate:
+    repo_token:
+      secure: "h6FILH7m2zl7OVJz0qf0kqtlJE8YpBtwTigQ/Mq1HwAqZNaDUlVt5rcd8gDf/EDcPNHxvIIgm5HwXzlFLtUUOTsxlWqgt/RlsyovKJ/iapdiuNAPU33HKtXVZs2G7hkBWgrihNozPw2WeSECu/igpikvzpythEdxhU63JAKOJBU="
 deploy:
   provider: heroku
   api_key:
