@@ -2,18 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "purchase_orders/index", :type => :view do
   before(:each) do
-    assign(:purchase_orders, [
-      PurchaseOrder.create!(
-        :name => "Name",
-        :description => "MyText",
-        :active => false
-      ),
-      PurchaseOrder.create!(
-        :name => "Name",
-        :description => "MyText",
-        :active => false
-      )
-    ])
+    @purchase_orders = FactoryGirl.create_list(:purchase_order, 2)
+    assign(:purchase_orders, @purchase_orders)
   end
 
   it "renders a list of purchase_orders" do

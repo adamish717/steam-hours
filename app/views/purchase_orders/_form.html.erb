@@ -5,6 +5,8 @@
   <%= error_span(@purchase_order[:description]) %>
   <%= f.input :active %>
   <%= error_span(@purchase_order[:active]) %>
+  <%= f.association :client %>
+  <%= error_span(@purchase_order[:client_id]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

@@ -1,3 +1,4 @@
 class PurchaseOrder < ActiveRecord::Base
-  validates :title, presence: true
+  belongs_to :client, inverse_of: :purchase_orders
+  validates :title, :client, presence: true
 end

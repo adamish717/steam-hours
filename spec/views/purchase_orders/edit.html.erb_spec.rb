@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "purchase_orders/edit", :type => :view do
   before(:each) do
-    @purchase_order = assign(:purchase_order, PurchaseOrder.create!(
-      :name => "MyString",
-      :description => "MyText",
-      :active => false
-    ))
+    @purchase_order = FactoryGirl.create(:purchase_order)
   end
 
   it "renders the edit purchase_order form" do

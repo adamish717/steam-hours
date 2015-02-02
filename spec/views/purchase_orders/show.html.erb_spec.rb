@@ -2,11 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "purchase_orders/show", :type => :view do
   before(:each) do
-    @purchase_order = assign(:purchase_order, PurchaseOrder.create!(
-      :name => "Name",
-      :description => "MyText",
-      :active => false
-    ))
+    @purchase_order = FactoryGirl.create(:purchase_order)
+    assign(:purchase_order, @purchase_order)
   end
 
   it "renders attributes in <p>" do
