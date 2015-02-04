@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201194153) do
+ActiveRecord::Schema.define(version: 20150203164756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20150201194153) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "entries", force: :cascade do |t|
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.text     "description"
+    t.text     "parts_used"
+    t.integer  "purchase_order_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "entries", ["purchase_order_id"], name: "index_entries_on_purchase_order_id", using: :btree
 
   create_table "purchase_orders", force: :cascade do |t|
     t.string   "title"
@@ -35,12 +47,12 @@ ActiveRecord::Schema.define(version: 20150201194153) do
   add_index "purchase_orders", ["client_id"], name: "index_purchase_orders_on_client_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -52,5 +64,6 @@ ActiveRecord::Schema.define(version: 20150201194153) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "entries", "purchase_orders"
   add_foreign_key "purchase_orders", "clients"
 end

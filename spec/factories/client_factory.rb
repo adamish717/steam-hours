@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:description) { |n| "Example client #{n} description." }
 
     # client_with_pos will create post data after the user has been created
-    factory :client_with_pos do
+    trait :with_pos do
       # posts_count is declared as a transient attribute and available in
       # attributes on the factory, as well as the callback via the evaluator
       transient do
