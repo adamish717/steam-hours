@@ -46,6 +46,7 @@ gem 'foreman'
 gem 'unicorn'
 
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 gem 'health_check'
 
 group :test do
