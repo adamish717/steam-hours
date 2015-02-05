@@ -42,6 +42,13 @@ gem 'foreman'
 
 gem 'unicorn'
 
+gem 'devise'
+gem 'health_check'
+
+group :test do
+  gem 'shoulda-matchers'
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'database_cleaner'
