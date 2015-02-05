@@ -51,6 +51,8 @@ gem 'health_check'
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'simplecov'
   gem 'codeclimate-test-reporter', require: nil
 end
