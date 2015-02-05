@@ -19,17 +19,21 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe PurchaseOrdersController, :type => :controller do
+  before(:each) do
+    login_user
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # PurchaseOrder. As you add validations to PurchaseOrder, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    # We can't just use attributes_for because we need a client_id
+    FactoryGirl.build(:purchase_order).attributes.symbolize_keys
   }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) {{
+    client_id: nil
+  }}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -102,15 +106,16 @@ RSpec.describe PurchaseOrdersController, :type => :controller do
 
   describe "PUT update" do
     describe "with valid params" do
+
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        FactoryGirl.attributes_for(:purchase_order)
       }
 
       it "updates the requested purchase_order" do
         purchase_order = PurchaseOrder.create! valid_attributes
         put :update, {:id => purchase_order.to_param, :purchase_order => new_attributes}, valid_session
         purchase_order.reload
-        skip("Add assertions for updated state")
+        expect(purchase_order).to be_valid
       end
 
       it "assigns the requested purchase_order as @purchase_order" do

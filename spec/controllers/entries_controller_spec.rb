@@ -19,17 +19,17 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe EntriesController, :type => :controller do
+  let!(:current_user) {
+    login_user
+  }
 
   # This should return the minimal set of attributes required to create a valid
   # Entry. As you add validations to Entry, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {{
-    start_at: Time.now,
-    end_at: 8.hours.from_now,
-    description: 'Example entry.',
-    parts_used: 'Example parts used.',
-    purchase_order_id: FactoryGirl.create(:purchase_order).id
-  }}
+  let(:valid_attributes) {
+    # We can't just use attributes_for because we need a purchase_order_id
+    FactoryGirl.build(:entry).attributes.symbolize_keys
+  }
 
   let(:invalid_attributes) {{
     end_at: nil
@@ -114,7 +114,7 @@ RSpec.describe EntriesController, :type => :controller do
         entry = Entry.create! valid_attributes
         put :update, {:id => entry.to_param, :entry => new_attributes}, valid_session
         entry.reload
-        skip("Add assertions for updated state")
+        expect(entry).to be_valid
       end
 
       it "assigns the requested entry as @entry" do

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "PurchaseOrders", :type => :request do
+  before(:each) do
+    login_user
+  end
+
   describe "GET /purchase_orders" do
     it "works! (now write some real specs)" do
       get purchase_orders_path
