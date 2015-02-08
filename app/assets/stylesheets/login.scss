@@ -1,0 +1,38 @@
+html {
+  height: 100%;
+}
+
+body.login-page {
+  min-height: 100%;
+  background-color: #b84d45;
+  background-image: image-url('bg-tile.png');
+}
+
+form#new_user {
+  width: 100%;
+  @include vertical-align;
+  color: $white;
+  text-align: center;
+
+  a {
+    color: $white;
+  }
+
+  input {
+    border: none;
+  }
+
+  .field:not(:first-of-type) input {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .field:not(:last-of-type) input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  fieldset {
+    margin-bottom: 1em;
+  }
+}

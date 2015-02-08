@@ -45,6 +45,9 @@ GEM
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bourbon (4.2.0)
+      sass (~> 3.4)
+      thor
     builder (3.2.2)
     cancancan (1.10.1)
     capybara (2.4.4)
@@ -230,6 +233,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.3)
+  bourbon
   cancancan (~> 1.10)
   capybara
   capybara-screenshot
