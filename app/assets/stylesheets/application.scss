@@ -1,4 +1,5 @@
-//= require bootstrap_and_overrides
+@import 'bootstrap-sprockets';
+@import 'theme/bootstrap-custom';
 
 @import 'clients';
 @import 'purchase_orders';
