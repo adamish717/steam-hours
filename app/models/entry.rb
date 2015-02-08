@@ -1,6 +1,8 @@
 class Entry < ActiveRecord::Base
   belongs_to :purchase_order
-  validates :description, :start_at, :end_at, :purchase_order, presence: true
+  has_one :client, through: :purchase_order
+  belongs_to :user
+  validates :description, :start_at, :end_at, :purchase_order, :user, presence: true
   validate :start_must_be_before_end
 
   private

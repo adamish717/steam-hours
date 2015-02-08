@@ -28,7 +28,14 @@ RSpec.describe EntriesController, :type => :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     # We can't just use attributes_for because we need a purchase_order_id
-    FactoryGirl.build(:entry).attributes.symbolize_keys
+    entry = FactoryGirl.build(:entry)
+    {
+      start_at: entry.start_at,
+      end_at: entry.end_at,
+      description: entry.description,
+      purchase_order_id: entry.purchase_order.id,
+      user_id: current_user.id
+    }
   }
 
   let(:invalid_attributes) {{

@@ -5,5 +5,6 @@ FactoryGirl.define do
     description 'Example entry.'
     parts_used 'Example parts used.'
     purchase_order
+    user
   end
 end
