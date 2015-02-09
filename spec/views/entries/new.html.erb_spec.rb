@@ -7,6 +7,7 @@ RSpec.describe "entries/new", :type => :view do
       :parts_used => "MyText",
       :purchase_order => nil
     ))
+    assign(:clients, Client.all)
   end
 
   it "renders new entry form" do

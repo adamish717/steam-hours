@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
   def index
     @entries = current_user.entries
     @entry = Entry.new
+    @clients = Client.all
   end
 
   # GET /entries/1
@@ -16,6 +17,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
+    @clients = Client.all
   end
 
   # GET /entries/1/edit

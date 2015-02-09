@@ -39,8 +39,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-6">
-      <%= f.select :purchase_order_id, PurchaseOrder.all.map { |r| [r.title, r.id] }, required: true %>
-      <%= error_span(@entry[:purchase_order_id]) %>
+      <%= grouped_collection_select(:entry, :purchase_order_id, @clients, :purchase_orders, :name, :id, :title, {prompt: 'Select a Purchase Order...'}, {class: 'form-control'}) %>
     </div>
     <div class="col-sm-6">
       <%= f.button :submit, 'Create New Entry', class: 'btn-primary btn-block' %>

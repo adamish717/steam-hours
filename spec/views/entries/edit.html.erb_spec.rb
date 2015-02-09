@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "entries/edit", :type => :view do
   before(:each) do
     @entry = FactoryGirl.create(:entry)
+    assign(:clients, Client.all)
   end
 
   it "renders the edit entry form" do

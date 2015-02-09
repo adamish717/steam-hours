@@ -8,6 +8,7 @@ RSpec.describe "entries/index", :type => :view do
     assign(:entries, @entries)
     @entry = Entry.new
     assign(:entry, @entry)
+    assign(:clients, Client.all)
   end
 
   it "renders a list of entries" do
