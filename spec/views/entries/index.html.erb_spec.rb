@@ -6,6 +6,8 @@ RSpec.describe "entries/index", :type => :view do
   before(:each) do
     @entries = FactoryGirl.create_list(:entry, 2)
     assign(:entries, @entries)
+    @entry = Entry.new
+    assign(:entry, @entry)
   end
 
   it "renders a list of entries" do

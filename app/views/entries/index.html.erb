@@ -1,35 +1,15 @@
-<%- model_class = Entry -%>
-<div class="page-header">
-  <h1>My Entries</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <%= render :partial => 'form' %>
+    </div>
+  </div>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Duration</th>
-      <th>Client</th>
-      <th>Purchase Order</th>
-      <th>Description</th>
-      <th>More Info</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @entries.each do |entry| %>
-      <tr>
-        <td><%= entry.start_at.strftime('%d-%b-%Y') %></td>
-        <td><%= hours(entry.end_at - entry.start_at) %></td>
-        <td><%= entry.client.name %></td>
-        <td><%= entry.purchase_order.title %></td>
-        <td><%= entry.description %></td>
-        <td>
-          <%= link_to t('.details', :default => t("helpers.links.details")),
-                      entry_path(entry), :class => 'btn btn-default btn-xs' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_entry_path,
-            :class => 'btn btn-primary' %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <%= render 'entries/entry' %>
+    </div>
+  </div>
+</div>

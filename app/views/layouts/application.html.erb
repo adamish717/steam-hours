@@ -47,16 +47,6 @@
 
     <%= bootstrap_flash %>
 
-    <% if @no_wrapper %>
-      <%= yield %>
-    <% else %>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <%= yield %>
-          </div>
-        </div><!--/row-->
-      </div> <!-- /container -->
-    <% end %>
+    <%= yield %>
   </body>
 </html>
