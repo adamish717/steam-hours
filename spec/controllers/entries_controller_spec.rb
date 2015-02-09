@@ -32,8 +32,8 @@ RSpec.describe EntriesController, :type => :controller do
     # We can't just use attributes_for because we need a purchase_order_id
     entry = FactoryGirl.build(:entry)
     {
-      start_at: entry.start_at,
-      end_at: entry.end_at,
+      start_at: entry.start_at.strftime('%m/%d/%Y %I:%M %p'),
+      end_at: entry.end_at.strftime('%m/%d/%Y %I:%M %p'),
       description: entry.description,
       purchase_order_id: entry.purchase_order.id,
       user_id: current_user.id

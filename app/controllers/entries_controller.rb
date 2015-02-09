@@ -25,7 +25,11 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    @entry = Entry.new(entry_params)
+    params = entry_params
+    params[:start_at] = time_from_picker params[:start_at]
+    params[:end_at] = time_from_picker params[:end_at]
+
+    @entry = Entry.new(params)
     @entry.user = current_user
 
     respond_to do |format|
@@ -68,6 +72,10 @@ class EntriesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_entry
     @entry = Entry.find(params[:id])
+  end
+
+  def time_from_picker time_str
+    DateTime.strptime(time_str, '%m/%d/%Y %I:%M %p') if time_str
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
