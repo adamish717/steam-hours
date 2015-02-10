@@ -14,7 +14,23 @@ module EntriesHelper
     previous_payday.to_datetime ... previous_payday.advance(days: 13).to_datetime.end_of_day
   end
 
+  def previous_pay_period pp
+    pay_period pp.begin.advance(days: -1)
+  end
+
+  def next_pay_period pp
+    if pp.end < Date.current
+      pay_period pp.end.advance(days: 1)
+    else
+      nil
+    end
+  end
+
   def date_str d
     d.to_date.to_s(:long)
+  end
+
+  def pp_start_str pp
+    pp.begin.to_date.to_s
   end
 end

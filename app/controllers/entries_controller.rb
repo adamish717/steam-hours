@@ -6,7 +6,10 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @pay_period = pay_period(Date.current)
+    start_date = params['pay_period'] ? params['pay_period'].to_date : Date.current
+    @pay_period = pay_period(start_date)
+    @previous = previous_pay_period(@pay_period)
+    @next = next_pay_period(@pay_period)
     @entries = current_user.entries.where(:start_at => @pay_period)
     @entry = Entry.new
     @clients = Client.all
