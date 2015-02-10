@@ -4,6 +4,7 @@ include EntriesHelper
 
 RSpec.describe "entries/index", :type => :view do
   before(:each) do
+    @pay_period = pay_period(Date.current)
     @entries = FactoryGirl.create_list(:entry, 2)
     assign(:entries, @entries)
     @entry = Entry.new

@@ -29,7 +29,7 @@ RSpec.describe Entry, :type => :model do
     end
 
     it 'must start before ending' do
-      entry.end_at = 1.hours.ago
+      entry.end_at = entry.start_at.advance(hours: -1)
       expect(entry).to_not be_valid
     end
   end

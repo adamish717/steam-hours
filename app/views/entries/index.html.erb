@@ -9,6 +9,9 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
+    <div class="page-header">
+      <h2>My Entries <small>from <%= date_str @pay_period.begin %> to <%= date_str @pay_period.end %></small></h2>
+    </div>
       <%= render 'entries/entry' %>
     </div>
   </div>

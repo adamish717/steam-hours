@@ -1,10 +1,13 @@
 class EntriesController < ApplicationController
+  include EntriesHelper
+
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /entries
   # GET /entries.json
   def index
-    @entries = current_user.entries
+    @pay_period = pay_period(Date.current)
+    @entries = current_user.entries.where(:start_at => @pay_period)
     @entry = Entry.new
     @clients = Client.all
   end

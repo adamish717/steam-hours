@@ -4,4 +4,17 @@ module EntriesHelper
   def hours duration
     distance_of_time_in_words(duration).gsub('about ','')
   end
+
+  def pay_period d
+    # Pay periods end every other Tuesday
+    first_payday = Date.new(2015, 01, 07)
+    previous_wed = d.advance(days: -((d.wday - 3)%7))
+    was_a_payday = (previous_wed - first_payday).to_i.abs % 14 == 0
+    previous_payday = was_a_payday ? previous_wed : previous_wed.advance(weeks: -1)
+    previous_payday.to_datetime ... previous_payday.advance(days: 13).to_datetime.end_of_day
+  end
+
+  def date_str d
+    d.to_date.to_s(:long)
+  end
 end
