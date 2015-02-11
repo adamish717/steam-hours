@@ -2,7 +2,7 @@
   <div class="form-group">
     <div class="col-sm-6">
       <div class="col-xs-3 text-right">
-        <label for="entry_start_at" class="control-label">From</label>
+        <label for="entry_start_at" class="control-label">Time In</label>
       </div>
       <div class="col-xs-9">
         <div class="input-group" id="start_at_picker">
@@ -14,7 +14,7 @@
     <%= error_span(@entry[:start_at]) %>
     <div class="col-sm-6">
       <div class="col-xs-3 text-right">
-        <label for="entry_end_at" class="control-label">Until</label>
+        <label for="entry_end_at" class="control-label">Time Out</label>
       </div>
       <div class="col-xs-9">
         <div class="input-group" id="end_at_picker">
@@ -27,22 +27,24 @@
   </div>
   <div class="form-group">
     <div class="col-sm-6">
-      <label for="entry_description" class="control-label sr-only">Description</label>
-      <textarea class="required form-control" name="entry[description]" id="entry_description" placeholder="Description"></textarea>
+      <label for="entry_description" class="control-label">Work Performed</label>
+      <textarea rows="10" class="required form-control" name="entry[description]" id="entry_description" placeholder="Description of work performed"></textarea>
       <%= error_span(@entry[:description]) %>
     </div>
     <div class="col-sm-6">
-      <label for="entry_parts_used" class="control-label sr-only">Parts used</label>
-      <textarea class="required form-control" name="entry[parts_used]" id="entry_parts_used" placeholder="Parts used"></textarea>
+      <label for="entry_parts_used" class="control-label">Parts Used</label>
+      <textarea rows="10" class="required form-control" name="entry[parts_used]" id="entry_parts_used" placeholder="Part Numbers, Serial Numbers, Description, etc..."></textarea>
       <%= error_span(@entry[:parts_used]) %>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-6">
+      <label for="entry_purchase_order_id">Client / Purchase Order</label>
       <%= grouped_collection_select(:entry, :purchase_order_id, @clients, :purchase_orders, :name, :id, :title, {prompt: 'Select a Purchase Order...'}, {class: 'form-control'}) %>
     </div>
     <div class="col-sm-6">
-      <%= f.button :submit, 'Create New Entry', class: 'btn-primary btn-block' %>
+      <label for="entry_submit">Submit</label>
+      <%= f.button :submit, 'Submit New Entry', class: 'btn-primary btn-block', id:'entry_submit' %>
     </div>
   </div>
 <% end %>

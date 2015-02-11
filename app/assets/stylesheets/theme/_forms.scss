@@ -2,3 +2,8 @@
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+
+/* Create space above Submit Button to match elements */
+label[for=entry_submit] {
+  opacity: 0;
+}
