@@ -3,21 +3,21 @@
   <thead>
     <tr>
       <th>Date</th>
-      <th>Duration</th>
       <th>Client</th>
       <th>Purchase Order</th>
       <th>Description</th>
+      <th>Duration</th>
       <th>More Info</th>
     </tr>
   </thead>
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
-        <td><%= entry.start_at.strftime('%d-%b-%Y') %></td>
-        <td><%= hours(entry.end_at - entry.start_at) %></td>
+        <td><%= entry.start_at.strftime('%Y-%b-%d') %></td>
         <td><%= entry.client.name %></td>
         <td><%= entry.purchase_order.title %></td>
         <td><%= entry.description %></td>
+        <td><%= hours(entry.end_at - entry.start_at) %></td>
         <td>
           <%= link_to t('.details', :default => t("helpers.links.details")),
                       entry_path(entry), :class => 'btn btn-default btn-xs' %>
