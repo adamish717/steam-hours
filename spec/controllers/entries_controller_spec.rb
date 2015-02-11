@@ -105,9 +105,9 @@ RSpec.describe EntriesController, :type => :controller do
         expect(assigns(:entry)).to be_persisted
       end
 
-      it "redirects to the created entry" do
+      it "redirects to the entries page" do
         post :create, {:entry => valid_request_params}, valid_session
-        expect(response).to redirect_to(Entry.last)
+        expect(response).to redirect_to(entries_url)
       end
     end
 
