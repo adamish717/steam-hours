@@ -1,0 +1,11 @@
+stage:
+  database:
+    - bundle exec rake db:setup RAILS_ENV=development
+
+  run:
+    - bundle exec rails server
+
+config:
+  database: postgresql
+  services:
+    - postgresql
