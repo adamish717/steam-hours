@@ -17,7 +17,7 @@
         <td><%= entry.client.name %></td>
         <td><%= entry.purchase_order.title %></td>
         <td><%= entry.description %></td>
-        <td><%= hours(entry.end_at - entry.start_at) %></td>
+        <td><%= distance_of_time_in_words(entry.end_at - entry.start_at) %></td>
         <td>
           <%= link_to t('.details', :default => t("helpers.links.details")),
                       entry_path(entry), :class => 'btn btn-default btn-xs' %>

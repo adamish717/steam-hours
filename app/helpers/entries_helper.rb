@@ -1,10 +1,6 @@
 module EntriesHelper
   include ActionView::Helpers::DateHelper
 
-  def hours duration
-    distance_of_time_in_words(duration).gsub('about ','')
-  end
-
   def pay_period d
     # Pay periods end every other Tuesday
     first_payday = Date.new(2015, 01, 07)

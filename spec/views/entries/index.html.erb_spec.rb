@@ -19,6 +19,6 @@ RSpec.describe "entries/index", :type => :view do
     expect(rendered).to include(@entries.first.purchase_order.title)
     expect(rendered).to include(@entries.first.client.name)
     duration = @entries.first.end_at - @entries.first.start_at
-    expect(rendered).to include(hours(duration))
+    expect(rendered).to include(distance_of_time_in_words(duration))
   end
 end
