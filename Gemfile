@@ -65,6 +65,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 3.0'
   gem 'database_cleaner'
+  gem 'timecop'
 end
 
 group :production do
