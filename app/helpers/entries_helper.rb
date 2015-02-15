@@ -39,6 +39,15 @@ module EntriesHelper
     (range.end - range.begin).to_i
   end
 
+  def time_worked entries
+    return 0 unless entries.any?
+    durations_worked(entries).sum { |d| time_range_length(d) }
+  end
+
+  def durations_worked entries
+    merge_time_ranges entries.map(&:duration)
+  end
+
   def merge_time_ranges ranges
     ranges = ranges.sort_by { |d| d.begin.to_i }
     *merged = ranges.shift

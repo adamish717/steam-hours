@@ -87,4 +87,16 @@ RSpec.describe EntriesHelper, type: :helper do
       end
     end
   end
+
+  describe 'time_worked' do
+    let(:entries) { [
+      FactoryGirl.create(:entry, { start_at: 16.hours.ago, end_at: 8.hours.ago }),
+      FactoryGirl.create(:entry, { start_at: 12.hours.ago, end_at: 4.hours.ago }),
+      FactoryGirl.create(:entry, { start_at: 8.hours.ago, end_at: 0.hours.ago })
+    ]}
+
+    it 'totals the time spent working' do
+      expect(time_worked(entries)).to eq(16.hours.to_i)
+    end
+  end
 end

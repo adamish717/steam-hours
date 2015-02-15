@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
     @pay_period = pay_period(start_date)
     @previous = previous_pay_period(@pay_period)
     @next = next_pay_period(@pay_period)
-    @entries = current_user.entries.where(:start_at => @pay_period)
+    @entries = current_user.entries.where(:start_at => @pay_period).to_a
     @entry = Entry.new
     @clients = Client.all
   end
