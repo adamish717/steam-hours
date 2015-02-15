@@ -42,4 +42,49 @@ RSpec.describe EntriesHelper, type: :helper do
       expect(time_billed([])).to eq(0)
     end
   end
+
+  describe 'merge_time_ranges' do
+    context 'disjointed durations' do
+      let(:ranges) {[
+        (16.hours.ago .. 15.hours.ago),
+        (12.hours.ago ..11.hours.ago),
+        (8.hours.ago .. 7.hours.ago)
+      ]}
+
+      it 'assigns all entries as @entries' do
+        merged = merge_time_ranges(ranges)
+        expect(merged.count).to eq(3)
+        expect(merged.first.begin).to eq(16.hours.ago)
+        expect(merged.last.end).to eq(7.hours.ago)
+      end
+    end
+    context 'overlapping durations' do
+      let(:ranges) {[
+        (16.hours.ago .. 8.hours.ago),
+        (12.hours.ago .. 4.hours.ago),
+        (8.hours.ago .. 0.hours.ago)
+      ]}
+
+      it 'assigns all entries as @entries' do
+        merged = merge_time_ranges(ranges)
+        expect(merged.count).to eq(1)
+        expect(merged.first.begin).to eq(16.hours.ago)
+        expect(merged.first.end).to eq(0.hours.ago)
+      end
+    end
+    context 'out of order durations' do
+      let(:ranges) {[
+        (8.hours.ago .. 0.hours.ago),
+        (12.hours.ago .. 4.hours.ago),
+        (16.hours.ago .. 8.hours.ago)
+      ]}
+
+      it 'assigns all entries as @entries' do
+        merged = merge_time_ranges(ranges)
+        expect(merged.count).to eq(1)
+        expect(merged.first.begin).to eq(16.hours.ago)
+        expect(merged.first.end).to eq(0.hours.ago)
+      end
+    end
+  end
 end

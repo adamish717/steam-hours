@@ -38,4 +38,18 @@ module EntriesHelper
   def time_range_length range
     (range.end - range.begin).to_i
   end
+
+  def merge_time_ranges ranges
+    ranges = ranges.sort_by { |d| d.begin.to_i }
+    *merged = ranges.shift
+    ranges.each do |r|
+      lastr = merged[-1]
+      if lastr.end >= r.begin
+        merged[-1] = lastr.begin .. [r.end, lastr.end].max
+      else
+        merged << r
+      end
+    end
+    merged
+  end
 end
