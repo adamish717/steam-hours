@@ -29,4 +29,13 @@ module EntriesHelper
   def pp_start_str pp
     pp.begin.to_date.to_s
   end
+
+  def time_billed entries
+    return 0 unless entries.any?
+    entries.sum { |e| time_range_length(e.duration) }
+  end
+
+  def time_range_length range
+    (range.end - range.begin).to_i
+  end
 end

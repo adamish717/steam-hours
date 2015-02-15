@@ -26,3 +26,5 @@
     <% end %>
   </tbody>
 </table>
+
+<p>Hours logged: <%= distance_of_time time_billed(@entries), accumulate_on: :hours %></p>
