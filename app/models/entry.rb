@@ -5,6 +5,10 @@ class Entry < ActiveRecord::Base
   validates :description, :start_at, :end_at, :purchase_order, :user, presence: true
   validate :start_must_be_before_end
 
+  def duration
+    (self.start_at .. self.end_at)
+  end
+
   private
 
   def start_must_be_before_end
