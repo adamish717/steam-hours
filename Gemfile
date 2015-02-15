@@ -63,6 +63,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry'
   gem 'rspec-rails', '~> 3.0'
   gem 'database_cleaner'
