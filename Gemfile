@@ -46,6 +46,7 @@ gem 'foreman'
 gem 'unicorn'
 
 gem 'devise'
+gem 'devise_invitable', '~> 1.4'
 gem 'cancancan', '~> 1.10'
 gem 'health_check'
 
