@@ -17,3 +17,5 @@
 
 # Ignore development artifacts
 /coverage
+
+.env
