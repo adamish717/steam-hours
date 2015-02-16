@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="page-header">
+      <h1>Employees</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <dl class="dl-horizontal">
+          <% @users.each do |user| %>
+            <dt><%= user.email %></dt>
+            <dd><%= time_since_invite user unless user.accepted_or_not_invited? %></dd>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
