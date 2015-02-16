@@ -2,13 +2,20 @@ html {
   height: 100%;
 }
 
-body.login-page {
+body.login-page, body.invitation-page {
   min-height: 100%;
-  background-color: #b84d45;
   background-image: image-url('bg-tile.png');
 }
 
-form#new_user {
+body.login-page, {
+  background-color: lighten(desaturate($brand-danger, 25%), 15%);
+}
+
+body.invitation-page {
+  background-color: lighten(desaturate($brand-success, 25%), 15%);
+}
+
+form#new_user, form#edit_user {
   width: 100%;
   @include vertical-align;
   color: $white;
@@ -30,6 +37,10 @@ form#new_user {
   .field:not(:last-of-type) input {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+
+  .form-group {
+    margin-bottom: 0;
   }
 
   fieldset {
