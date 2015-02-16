@@ -27,7 +27,7 @@ $coldstone:             hsl(190, 17%, 66%);
 //
 //## Settings for some of the most global styles.
 //** Background color for `<body>`.
-$body-bg:               lighten($coldstone, 25%);
+$body-bg:               #454545;
 //** Global text color on `<body>`.
 // $text-color:            $gray-dark !default;
 
@@ -360,7 +360,7 @@ $font-family-serif:       Lato, Georgia, "Times New Roman", Times, serif !defaul
 // $navbar-collapse-max-height:       340px !default;
 
 // $navbar-default-color:             #777 !default;
-$navbar-default-bg:                $gray-lighter;
+$navbar-default-bg:                $white;
 // $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 
 // Navbar links
