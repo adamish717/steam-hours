@@ -23,6 +23,10 @@ RSpec.describe 'Inviting users', :type => :feature do
         expect(page).to have_content 'new.invitee@example.com'
       end
 
+      scenario 'redirects to admin dashboard' do
+        expect(current_path).to eq(admin_path)
+      end
+
       context 'when accepting the invitation' do
         before do
           click_link 'Log Out'
