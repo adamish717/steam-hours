@@ -1,0 +1,5 @@
+<%= simple_form_for User.new, url: user_invitation_path, html: { id:'invitation_form' } do |f| %>
+  <%= f.input :email, label: false, placeholder: 'Email', required: true %>
+
+  <%= f.button :submit, 'Invite User', class: 'btn-primary btn-block', id:'invitation_submit' %>
+<% end %>
