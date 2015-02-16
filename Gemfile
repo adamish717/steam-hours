@@ -57,6 +57,7 @@ gem 'factory_girl_rails', '~> 4.0'
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'capybara-email'
   gem 'capybara-screenshot'
   gem 'simplecov'
   gem 'codeclimate-test-reporter', require: nil

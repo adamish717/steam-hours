@@ -56,6 +56,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-email (2.4.0)
+      capybara (~> 2.4)
+      mail
     capybara-screenshot (1.0.4)
       capybara (>= 1.0, < 3)
       colored
@@ -252,6 +255,7 @@ DEPENDENCIES
   bourbon
   cancancan (~> 1.10)
   capybara
+  capybara-email
   capybara-screenshot
   codeclimate-test-reporter
   coffee-rails (~> 4.1)
