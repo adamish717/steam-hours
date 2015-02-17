@@ -10,6 +10,5 @@ RSpec.describe 'clients/index', :type => :view do
     render
     assert_select 'tbody>tr', :count => 2
     expect(rendered).to include(@clients.first.name)
-    expect(rendered).to include(@clients.first.description)
   end
 end

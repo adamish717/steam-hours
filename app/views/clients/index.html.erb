@@ -10,8 +10,6 @@
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:client_name) %></th>
-          <th><%= model_class.human_attribute_name(:client_description) %></th>
-          <th><%= model_class.human_attribute_name(:created_at) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
       </thead>
@@ -19,8 +17,6 @@
         <% @clients.each do |client| %>
           <tr>
             <td><%= link_to client.name, client_path(client) %></td>
-            <td><%= client.description %></td>
-            <td><%=l client.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_client_path(client), :class => 'btn btn-default btn-xs' %>
