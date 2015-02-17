@@ -12,8 +12,6 @@
           <th><%= model_class.human_attribute_name(:client) %></th>
           <th><%= model_class.human_attribute_name(:purchase_order) %></th>
           <th><%= model_class.human_attribute_name(:active) %></th>
-          <th>Unbilled Entries</th>
-          <th>Billed Entries</th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
       </thead>
@@ -23,8 +21,6 @@
             <td><%= purchase_order.client.name %></td>
             <td><%= link_to purchase_order.title, purchase_order_path(purchase_order) %></td>
             <td><%= purchase_order.active %></td>
-            <td>*Future Feature*</td>
-            <td>*Future Feature*</td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_purchase_order_path(purchase_order), :class => 'btn btn-default btn-xs' %>
