@@ -10,7 +10,6 @@ RSpec.describe "purchase_orders/index", :type => :view do
     render
     assert_select 'tbody>tr', :count => 2
     expect(rendered).to include(@purchase_orders.first.title)
-    expect(rendered).to include(@purchase_orders.first.description)
     expect(rendered).to include(@purchase_orders.first.active ? 'true': 'false')
   end
 end

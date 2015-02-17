@@ -9,7 +9,6 @@ RSpec.describe "purchase_orders/show", :type => :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to include(@purchase_order.title)
-    expect(rendered).to include(@purchase_order.description)
     expect(rendered).to include(@purchase_order.active ? 'true': 'false')
   end
 end

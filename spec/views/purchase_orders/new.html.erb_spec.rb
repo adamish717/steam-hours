@@ -16,8 +16,6 @@ RSpec.describe "purchase_orders/new", :type => :view do
 
       assert_select "input#purchase_order_title[name=?]", "purchase_order[title]"
 
-      assert_select "textarea#purchase_order_description[name=?]", "purchase_order[description]"
-
       assert_select "input#purchase_order_active[name=?]", "purchase_order[active]"
     end
   end
