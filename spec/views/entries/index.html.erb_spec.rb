@@ -14,11 +14,12 @@ RSpec.describe "entries/index", :type => :view do
 
   it "renders a list of entries" do
     render
+    decoded = decode rendered
     assert_select 'tbody>tr', :count => 2
-    expect(rendered).to include(@entries.first.description)
-    expect(rendered).to include(@entries.first.purchase_order.title)
-    expect(rendered).to include(@entries.first.client.name)
+    expect(decoded).to include(@entries.first.description)
+    expect(decoded).to include(@entries.first.purchase_order.title)
+    expect(decoded).to include(@entries.first.client.name)
     duration = @entries.first.end_at - @entries.first.start_at
-    expect(rendered).to include(distance_of_time_in_words(duration))
+    expect(decoded).to include(distance_of_time_in_words(duration))
   end
 end

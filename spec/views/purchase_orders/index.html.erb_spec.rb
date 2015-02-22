@@ -8,8 +8,9 @@ RSpec.describe "purchase_orders/index", :type => :view do
 
   it "renders a list of purchase_orders" do
     render
+    decoded = decode rendered
     assert_select 'tbody>tr', :count => 2
-    expect(rendered).to include(@purchase_orders.first.title)
-    expect(rendered).to include(@purchase_orders.first.active ? 'true': 'false')
+    expect(decoded).to include(@purchase_orders.first.title)
+    expect(decoded).to include(@purchase_orders.first.active ? 'true': 'false')
   end
 end

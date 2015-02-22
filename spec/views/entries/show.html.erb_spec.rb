@@ -8,7 +8,8 @@ RSpec.describe "entries/show", :type => :view do
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to include(@entry.description)
-    expect(rendered).to include(@entry.parts_used)
+    decoded = decode rendered
+    expect(decoded).to include(@entry.description)
+    expect(decoded).to include(@entry.parts_used)
   end
 end
