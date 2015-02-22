@@ -59,6 +59,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-email'
   gem 'capybara-screenshot'
+  gem 'htmlentities'
   gem 'simplecov'
   gem 'codeclimate-test-reporter', require: nil
 end
