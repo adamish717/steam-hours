@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :client do
-    sequence(:name) { |n| "Example client #{n}" }
-    sequence(:description) { |n| "Example client #{n} description." }
+    name        { "#{Faker::Company.name} #{Faker::Company.suffix}" }
+    description { Faker::Company.bs }
 
     # client_with_pos will create post data after the user has been created
     trait :with_pos do

@@ -23,10 +23,10 @@ clients = []
 purchase_orders = []
 
 puts 'Creating example user'
-users << FactoryGirl.create(:user, email: 'user@example.com')
+users << FactoryGirl.create(:user, email: 'user@example.com', password: 'password', password_confirmation: 'password')
 
 puts 'Creating example admin'
-users << FactoryGirl.create(:user, email: 'admin@example.com')
+users << FactoryGirl.create(:user, email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 puts 'Creating some sample clients'
 clients.concat FactoryGirl.create_list :client, 3

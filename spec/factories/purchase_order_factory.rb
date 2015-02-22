@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :purchase_order do
-    title 'Example PO'
-    description 'Example PO description.'
+    title       { Faker::Company.bs }
+    description { Faker::Company.catch_phrase }
     active true
     client
   end

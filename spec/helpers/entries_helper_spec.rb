@@ -32,10 +32,13 @@ RSpec.describe EntriesHelper, type: :helper do
   end
 
   describe 'time_billed' do
-    let(:entries) { FactoryGirl.create_list(:entry, 5) }
+    let(:entries) {[
+      FactoryGirl.create(:entry, { start_at: 8.hours.ago, end_at: 4.hours.ago }),
+      FactoryGirl.create(:entry, { start_at: 4.hours.ago, end_at: Time.now })
+     ]}
 
     it 'adds up the duation of all entries' do
-      expect(time_billed(entries)).to eq(40.hours.to_i)
+      expect(time_billed(entries)).to eq(8.hours.to_i)
     end
 
     it 'survives an empty list' do
