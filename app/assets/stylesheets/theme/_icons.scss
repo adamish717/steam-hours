@@ -1,0 +1,13 @@
+.imgicon-lg {
+  $img-size-large: ceil($font-size-large * $line-height-large);
+
+  display: inline-block;
+  height: $img-size-large;
+  width: $img-size-large;
+}
+
+.imgicon-lg-google-plus {
+  background: no-repeat image-url('icons/google-plus.png') -47px -3px;
+  -webkit-background-size: 84px 88px;
+  background-size: 84px 88px;
+}

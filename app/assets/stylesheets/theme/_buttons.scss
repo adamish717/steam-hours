@@ -1,0 +1,20 @@
+.btn-split {
+  float: left;
+
+  .btn-lg & {
+    $button-inner-height-large: ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2);
+
+    height: $button-inner-height-large;
+    line-height: $button-inner-height-large + $padding-large-vertical;
+    margin-top: -($padding-large-vertical);
+    padding-right: $padding-large-horizontal;
+  }
+
+  .btn-success & {
+    border-right: 1px solid $btn-success-border;
+  }
+  .btn-success:hover & {
+    // same as: bootstrap-sass/assets/stylesheets/bootstrap/mixins/_buttons.scss
+    border-color: darken($btn-success-border, 12%)
+  }
+}
