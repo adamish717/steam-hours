@@ -33,7 +33,7 @@ RSpec.describe 'Inviting users', :type => :feature do
 
           open_email 'new.invitee@example.com'
           current_email.click_link 'Accept invitation'
-          expect(page).to have_content 'Password Confirmation'
+          expect(page).to have_content 'Create Account'
 
           fill_in 'user_password', with: 's3cr1t42'
           fill_in 'user_password_confirmation', with: 's3cr1t42'

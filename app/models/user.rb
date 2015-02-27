@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
     end
     user
   end
+
+  def pending_invitation?
+    invited_to_sign_up? && !invitation_accepted?
+  end
 end
