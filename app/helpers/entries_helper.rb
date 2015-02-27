@@ -1,6 +1,18 @@
 module EntriesHelper
   include ActionView::Helpers::DateHelper
 
+  def short_dotiw duration
+    minutes = (duration / 60) % 60
+    hours = duration / (60 * 60)
+    if hours >= 1 && minutes >= 1
+      format("%dhrs %dmins", hours, minutes)
+    elsif hours >= 1
+      format("%dhrs", hours)
+    else
+      format("%dmins", minutes)
+    end
+  end
+
   def pay_period d
     # Pay periods end every other Tuesday
     first_payday = Date.new(2015, 01, 07)
