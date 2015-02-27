@@ -3,9 +3,9 @@
   <thead>
     <tr>
       <th>Date</th>
-      <th>Client</th>
-      <th>Purchase Order</th>
-      <th>Description</th>
+      <th class="hidden-xs">Client</th>
+      <th class="hidden-xs">Purchase Order</th>
+      <th class="hidden-xs hidden-sm">Work Performed</th>
       <th>Duration</th>
       <th>More Info</th>
     </tr>
@@ -13,11 +13,10 @@
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
-        <td><%= entry.start_at.strftime('%Y-%b-%d') %></td>
-        <td><%= entry.client.name %></td>
-        <td><%= entry.purchase_order.title %></td>
-        <td><%= entry.description %></td>
-        <td><%= distance_of_time_in_words(entry.end_at - entry.start_at) %></td>
+        <td><%= entry.start_at.strftime('%b %d') %></td>
+        <td class="hidden-xs"><%= entry.client.name %></td>
+        <td class="hidden-xs"><%= entry.purchase_order.title %></td>
+        <td class="hidden-xs hidden-sm"><%= entry.description %></td>
         <td><%= short_dotiw(entry.end_at - entry.start_at) %></td>
         <td>
           <%= link_to t('.details', :default => t("helpers.links.details")),
