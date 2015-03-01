@@ -1,5 +1,9 @@
 module FeatureHelpers
-  def login(user=nil)
+  def login_admin
+    login_user FactoryGirl.create(:admin)
+  end
+
+  def login_user(user=nil)
     user ||= FactoryGirl.create(:user)
     visit user_session_path
     within('#new_user') do

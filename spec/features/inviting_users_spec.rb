@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Inviting users', :type => :feature do
 
   feature 'Inviting users' do
-    let!(:admin) { login }
+    let!(:admin) { login_admin }
 
     scenario 'displays a list of users' do
       visit admin_path

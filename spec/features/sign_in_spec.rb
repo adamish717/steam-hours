@@ -5,7 +5,7 @@ RSpec.describe 'SignIn', :type => :feature do
     let(:user) { FactoryGirl.create(:user) }
 
     it 'signs me in' do
-      login
+      login_user user
       expect(page).to have_content 'Signed in successfully'
     end
   end
