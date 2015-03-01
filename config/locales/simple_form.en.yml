@@ -14,3 +14,6 @@ en:
       entry:
         description: 'Description of work performed'
         parts_used: 'Part Numbers, Serial Numbers, Description, etc...'
+    prompts:
+      entry:
+        purchase_order: 'Select a Purchase Order...'

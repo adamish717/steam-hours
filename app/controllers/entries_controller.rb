@@ -12,7 +12,6 @@ class EntriesController < ApplicationController
     @next = next_pay_period(@pay_period)
     @entries = current_user.entries.where(:start_at => @pay_period).to_a
     @entry = Entry.new
-    @clients = Client.all
   end
 
   # GET /entries/1
@@ -23,7 +22,6 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
-    @clients = Client.all
   end
 
   # GET /entries/1/edit
