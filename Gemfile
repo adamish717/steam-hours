@@ -18,6 +18,7 @@ gem 'coffeelint'
 # gem 'therubyracer',  platforms: :ruby
 
 gem 'simple_form'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'momentjs-rails'

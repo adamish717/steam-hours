@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: e41ba7f805d1eca19153ff91b27423a4aff5e4b6
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (4.3.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -287,6 +295,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1)
   coffeelint
   database_cleaner
+  datetimepicker-rails!
   devise
   devise_invitable (~> 1.4)
   dotenv-rails
