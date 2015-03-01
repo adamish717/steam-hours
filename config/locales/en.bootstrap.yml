@@ -22,3 +22,7 @@ en:
       save: "Save %{model}"
       new: "New %{model}"
       delete: "Delete %{model}"
+    submit:
+      entry:
+        create: "Submit New Entry"
+        update: "Update Entry"
