@@ -1,29 +1,13 @@
 <%= simple_form_for @entry, :html => { class: 'form-horizontal', novalidate: false } do |f| %>
   <div class="form-group">
     <div class="col-sm-6">
-      <div class="col-xs-3 text-right">
-        <label for="entry_start_at" class="control-label">Time In</label>
-      </div>
-      <div class="col-xs-9">
-        <div class="input-group" id="start_at_picker">
-          <input type="text" class="text required form-control" name="entry[start_at]" id="entry_start_at" required />
-          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-        </div>
-      </div>
+      <%= f.input :start_at, as: :datetime_picker, label_html: { class: 'col-xs-3' } %>
+      <%= error_span(@entry[:start_at]) %>
     </div>
-    <%= error_span(@entry[:start_at]) %>
     <div class="col-sm-6">
-      <div class="col-xs-3 text-right">
-        <label for="entry_end_at" class="control-label">Time Out</label>
-      </div>
-      <div class="col-xs-9">
-        <div class="input-group" id="end_at_picker">
-          <input type="text" class="text required form-control" name="entry[end_at]" id="entry_end_at" required />
-          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-        </div>
-      </div>
+      <%= f.input :end_at, as: :datetime_picker, label_html: { class: 'col-xs-3' } %>
+      <%= error_span(@entry[:end_at]) %>
     </div>
-    <%= error_span(@entry[:end_at]) %>
   </div>
   <div class="form-group">
     <div class="col-sm-6">

@@ -81,32 +81,21 @@ RSpec.describe EntriesController, :type => :controller do
   end
 
   describe "POST create" do
-    let(:valid_request_params) {
-      entry = FactoryGirl.build(:entry)
-      {
-        start_at: entry.start_at.strftime('%m/%d/%Y %I:%M %p'),
-        end_at: entry.end_at.strftime('%m/%d/%Y %I:%M %p'),
-        description: entry.description,
-        purchase_order_id: entry.purchase_order.id,
-        user_id: current_user.id
-      }
-    }
-
     describe "with valid params" do
       it "creates a new Entry" do
         expect {
-          post :create, {:entry => valid_request_params}, valid_session
+          post :create, {:entry => valid_attributes}, valid_session
         }.to change(Entry, :count).by(1)
       end
 
       it "assigns a newly created entry as @entry" do
-        post :create, {:entry => valid_request_params}, valid_session
+        post :create, {:entry => valid_attributes}, valid_session
         expect(assigns(:entry)).to be_a(Entry)
         expect(assigns(:entry)).to be_persisted
       end
 
       it "redirects to the entries page" do
-        post :create, {:entry => valid_request_params}, valid_session
+        post :create, {:entry => valid_attributes}, valid_session
         expect(response).to redirect_to(entries_url)
       end
     end
