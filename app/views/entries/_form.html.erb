@@ -11,23 +11,21 @@
   </div>
   <div class="form-group">
     <div class="col-sm-6">
-      <label for="entry_description" class="control-label">Work Performed</label>
-      <textarea rows="10" class="required form-control" name="entry[description]" id="entry_description" placeholder="Description of work performed"></textarea>
+      <%= f.input :description, as: :text, input_html: { :rows => 10 } %>
       <%= error_span(@entry[:description]) %>
     </div>
     <div class="col-sm-6">
-      <label for="entry_parts_used" class="control-label">Parts Used</label>
-      <textarea rows="10" class="required form-control" name="entry[parts_used]" id="entry_parts_used" placeholder="Part Numbers, Serial Numbers, Description, etc..."></textarea>
+      <%= f.input :parts_used, as: :text, input_html: { :rows => 10 } %>
       <%= error_span(@entry[:parts_used]) %>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-6">
-      <label for="entry_purchase_order_id">Client / Purchase Order</label>
-      <%= grouped_collection_select(:entry, :purchase_order_id, @clients, :purchase_orders, :name, :id, :title, {prompt: 'Select a Purchase Order...'}, {class: 'form-control'}) %>
+      <%= grouped_collection_select(:entry, :purchase_order_id, @clients, :purchase_orders, :name, :id, :title, {class: 'form-control'}) %>
+      <%= error_span(@entry[:purchase_order]) %>
     </div>
     <div class="col-sm-6">
-      <label for="entry_submit">Submit</label>
+      <label class="control-label" for="entry_submit">Submit</label>
       <%= f.button :submit, class: 'btn-primary btn-block', id:'entry_submit' %>
     </div>
   </div>
