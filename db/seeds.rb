@@ -26,7 +26,7 @@ puts 'Creating example user'
 users << FactoryGirl.create(:user, email: 'user@example.com', password: 'password', password_confirmation: 'password')
 
 puts 'Creating example admin'
-users << FactoryGirl.create(:user, email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+users << FactoryGirl.create(:user, email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
 
 puts 'Creating some sample clients'
 clients.concat FactoryGirl.create_list :client, 3

@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     user
   end
 
+  def admin?
+    !!admin
+  end
+
   def pending_invitation?
     invited_to_sign_up? && !invitation_accepted?
   end
