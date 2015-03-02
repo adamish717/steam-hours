@@ -16,4 +16,16 @@ RSpec.describe PurchaseOrder, :type => :model do
       expect(purchase_order.client.name).to be(client.name)
     end
   end
+
+  context 'with associated entries' do
+    let!(:purchase_order) { FactoryGirl.create(:purchase_order) }
+    let!(:entry) { FactoryGirl.create(:entry, purchase_order: purchase_order) }
+
+    it 'cannot be deleted' do
+      purchase_order.destroy
+      expect(purchase_order.destroyed?).to be(false)
+      expect(purchase_order.errors.messages[:base]).to include('Cannot delete record because dependent entries exist')
+      expect(entry.purchase_order).to be(purchase_order)
+    end
+  end
 end
