@@ -16,12 +16,12 @@
       <tbody>
         <% @clients.each do |client| %>
           <tr>
-            <td><%= link_to client.name, client_path(client) %></td>
+            <td><%= link_to client.name, admin_client_path(client) %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_client_path(client), :class => 'btn btn-default btn-xs' %>
+                edit_admin_client_path(client), :class => 'btn btn-default btn-xs' %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                client_path(client),
+                admin_client_path(client),
                 :method => :delete,
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                 :class => 'btn btn-xs btn-danger' %>
@@ -31,7 +31,7 @@
       </tbody>
     </table>
     <%= link_to t('.new', :default => t("helpers.links.new")),
-      new_client_path,
+      new_admin_client_path,
       :class => 'btn btn-primary' %>
   </div>
 </div>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'clients/index', :type => :view do
+RSpec.describe 'admin/clients/index', :type => :view do
   before(:each) do
     @clients = FactoryGirl.create_list(:client, 2)
     assign(:clients, @clients)

@@ -1,8 +1,8 @@
-<%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [:admin, @client], :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= error_span(@client[:name]) %>
 <br>
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                clients_path, :class => 'btn btn-default' %>
+                admin_clients_path, :class => 'btn btn-default' %>
 <% end %>

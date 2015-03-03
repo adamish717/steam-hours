@@ -18,9 +18,9 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe ClientsController, :type => :controller do
+RSpec.describe Admin::ClientsController, :type => :controller do
   before(:each) do
-    login_user
+    login_admin
   end
 
   # This should return the minimal set of attributes required to create a valid
@@ -86,7 +86,7 @@ RSpec.describe ClientsController, :type => :controller do
 
       it "redirects to the created client" do
         post :create, {:client => valid_attributes}, valid_session
-        expect(response).to redirect_to(Client.last)
+        expect(response).to redirect_to([:admin, Client.last])
       end
     end
 
@@ -125,7 +125,7 @@ RSpec.describe ClientsController, :type => :controller do
       it "redirects to the client" do
         client = Client.create! valid_attributes
         put :update, {:id => client.to_param, :client => valid_attributes}, valid_session
-        expect(response).to redirect_to(client)
+        expect(response).to redirect_to([:admin, Client.last])
       end
     end
 
@@ -155,7 +155,7 @@ RSpec.describe ClientsController, :type => :controller do
     it "redirects to the clients list" do
       client = Client.create! valid_attributes
       delete :destroy, {:id => client.to_param}, valid_session
-      expect(response).to redirect_to(clients_url)
+      expect(response).to redirect_to(admin_clients_url)
     end
   end
 
