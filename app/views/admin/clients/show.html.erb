@@ -1,2 +1,5 @@
 <%= render partial: 'show' %>
 
+<%= render 'purchase_orders', title: 'Active Purchase Orders', purchase_orders: @client.purchase_orders.select {|po|po.active} %>
+
+<%= render 'purchase_orders', title: 'Inactive Purchase Orders', purchase_orders: @client.purchase_orders.reject {|po|po.active} %>
