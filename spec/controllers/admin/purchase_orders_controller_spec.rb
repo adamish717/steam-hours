@@ -18,9 +18,9 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe PurchaseOrdersController, :type => :controller do
+RSpec.describe Admin::PurchaseOrdersController, :type => :controller do
   before(:each) do
-    login_user
+    login_admin
   end
 
   # This should return the minimal set of attributes required to create a valid
@@ -87,7 +87,7 @@ RSpec.describe PurchaseOrdersController, :type => :controller do
 
       it "redirects to the created purchase_order" do
         post :create, {:purchase_order => valid_attributes}, valid_session
-        expect(response).to redirect_to(PurchaseOrder.last)
+        expect(response).to redirect_to([:admin, PurchaseOrder.last])
       end
     end
 
@@ -127,7 +127,7 @@ RSpec.describe PurchaseOrdersController, :type => :controller do
       it "redirects to the purchase_order" do
         purchase_order = PurchaseOrder.create! valid_attributes
         put :update, {:id => purchase_order.to_param, :purchase_order => valid_attributes}, valid_session
-        expect(response).to redirect_to(purchase_order)
+        expect(response).to redirect_to([:admin, purchase_order])
       end
     end
 
@@ -157,7 +157,7 @@ RSpec.describe PurchaseOrdersController, :type => :controller do
     it "redirects to the purchase_orders list" do
       purchase_order = PurchaseOrder.create! valid_attributes
       delete :destroy, {:id => purchase_order.to_param}, valid_session
-      expect(response).to redirect_to(purchase_orders_url)
+      expect(response).to redirect_to(admin_purchase_orders_url)
     end
   end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "purchase_orders/show", :type => :view do
+RSpec.describe "admin/purchase_orders/show", :type => :view do
   before(:each) do
     @purchase_order = FactoryGirl.create(:purchase_order)
     assign(:purchase_order, @purchase_order)

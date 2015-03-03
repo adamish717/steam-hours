@@ -1,4 +1,4 @@
-<%= simple_form_for @purchase_order, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [:admin, @purchase_order], :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :title %>
   <%= error_span(@purchase_order[:title]) %>
   <%= f.input :description %>
@@ -10,5 +10,5 @@
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                purchase_orders_path, :class => 'btn btn-default' %>
+                admin_purchase_orders_path, :class => 'btn btn-default' %>
 <% end %>

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :entries
 
-  resources :purchase_orders
-
   devise_for :users, controllers: {
     invitations: 'users/invitations',
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -68,6 +66,8 @@ Rails.application.routes.draw do
     get '', to: 'dashboard#index', as: '/'
 
     resources :clients
+
+    resources :purchase_orders
   end
 
   root 'entries#index'

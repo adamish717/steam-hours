@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "purchase_orders/edit", :type => :view do
+RSpec.describe "admin/purchase_orders/edit", :type => :view do
   before(:each) do
     @purchase_order = FactoryGirl.create(:purchase_order)
   end
@@ -8,7 +8,7 @@ RSpec.describe "purchase_orders/edit", :type => :view do
   it "renders the edit purchase_order form" do
     render
 
-    assert_select "form[action=?][method=?]", purchase_order_path(@purchase_order), "post" do
+    assert_select "form[action=?][method=?]", admin_purchase_order_path(@purchase_order), "post" do
 
       assert_select "input#purchase_order_title[name=?]", "purchase_order[title]"
 
