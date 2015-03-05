@@ -1,1 +1,3 @@
 <%= render partial: 'show' %>
+
+<%= render 'entries', entries: @purchase_order.entries.order(user_id: :asc, start_at: :desc).to_a %>

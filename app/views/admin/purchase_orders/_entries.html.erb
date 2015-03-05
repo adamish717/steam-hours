@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th class="hidden-xs">Employee</th>
+            <th class="hidden-xs hidden-sm">Work Performed</th>
+            <th>Duration</th>
+            <th>More Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% entries.each do |entry| %>
+            <tr>
+              <td><%= entry.start_at.strftime('%b %d') %></td>
+              <td class="hidden-xs"><%= entry.user.email %></td>
+              <td class="hidden-xs hidden-sm"><%= entry.description %></td>
+              <td><%= short_dotiw(entry.end_at - entry.start_at) %></td>
+              <td>
+                <%= link_to t('.details', :default => t("helpers.links.details")),
+                            entry_path(entry), :class => 'btn btn-default btn-xs' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <p>Total Tracked Time: <%= distance_of_time time_billed(entries), accumulate_on: :hours %></p>
+    </div>
+  </div>
+</div>
