@@ -1,4 +1,6 @@
 class Admin::PurchaseOrdersController < Admin::BaseController
+  include Admin::PurchaseOrdersHelper
+
   before_action :set_purchase_order, only: [:show, :edit, :update, :destroy]
 
   # GET /purchase_orders

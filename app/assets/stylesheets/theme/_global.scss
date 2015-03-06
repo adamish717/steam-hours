@@ -19,3 +19,7 @@ body {
 .details-spacing {
   padding: 8px;
 }
+
+section header {
+  @extend .page-header
+}

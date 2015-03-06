@@ -10,6 +10,6 @@ RSpec.describe "admin/purchase_orders/show", :type => :view do
     render
     decoded = decode rendered
     expect(decoded).to include(@purchase_order.title)
-    expect(decoded).to include(@purchase_order.active ? 'true': 'false')
+    expect(decoded).to include(@purchase_order.active ? 'Active': 'Inactive')
   end
 end
