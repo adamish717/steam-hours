@@ -11,6 +11,6 @@ RSpec.describe "admin/purchase_orders/index", :type => :view do
     decoded = decode rendered
     assert_select 'tbody>tr', :count => 2
     expect(decoded).to include(@purchase_orders.first.title)
-    expect(decoded).to include(@purchase_orders.first.active ? 'true': 'false')
+    expect(decoded).to include(@purchase_orders.first.active ? 'Active': 'Inactive')
   end
 end

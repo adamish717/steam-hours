@@ -6,7 +6,7 @@ class Admin::PurchaseOrdersController < Admin::BaseController
   # GET /purchase_orders
   # GET /purchase_orders.json
   def index
-    @purchase_orders = PurchaseOrder.all
+    @purchase_orders = PurchaseOrder.all.order(client_id: :asc, active: :desc, title: :asc)
   end
 
   # GET /purchase_orders/1

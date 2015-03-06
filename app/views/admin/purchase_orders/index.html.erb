@@ -9,18 +9,18 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><%= model_class.human_attribute_name(:client) %></th>
-          <th><%= model_class.human_attribute_name(:purchase_order) %></th>
           <th><%= model_class.human_attribute_name(:active) %></th>
+          <th><%= model_class.human_attribute_name(:purchase_order) %></th>
+          <th><%= model_class.human_attribute_name(:client) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
       </thead>
       <tbody>
         <% @purchase_orders.each do |purchase_order| %>
           <tr>
-            <td><%= purchase_order.client.name %></td>
+            <td><%= active_label purchase_order.active %></td>
             <td><%= link_to purchase_order.title, admin_purchase_order_path(purchase_order) %></td>
-            <td><%= purchase_order.active %></td>
+            <td><%= link_to purchase_order.client.name, admin_client_path(purchase_order.client) %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_admin_purchase_order_path(purchase_order), :class => 'btn btn-default btn-xs' %>
